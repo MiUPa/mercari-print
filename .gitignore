@@ -1,0 +1,3 @@
+# .gitignore for GitHub Pages
+node_modules/
+build/
