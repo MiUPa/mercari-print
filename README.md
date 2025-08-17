@@ -1,13 +1,11 @@
 # メルカリShops宛名ラベル作成ツール
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 メルカリShopsの注文CSVから長形3号封筒用の宛名ラベルを作成するWebアプリケーションです。
 ブラウザ上で動作し、サーバーへのアップロードは不要です。
 
 ## デモ
 
-[デモサイトを見る](https://miupa.jp/projects/mercari-print/src/)
+[デモサイトを見る](https://mercari-print.miupa.jp/)
 
 ![スクリーンショット](docs/images/screenshot.png)
 
