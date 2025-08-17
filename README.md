@@ -3,9 +3,9 @@
 メルカリShopsの注文CSVから長形3号封筒用の宛名ラベルを作成するWebアプリケーションです。
 ブラウザ上で動作し、サーバーへのアップロードは不要です。
 
-## デモ
+## サイト
 
-[デモサイトを見る](https://mercari-print.miupa.jp/)
+[サイトを見る](https://mercari-print.miupa.jp/)
 
 ![スクリーンショット](docs/images/screenshot.png)
 
