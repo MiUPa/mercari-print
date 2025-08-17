@@ -1,27 +1,320 @@
+/* メルカリ風デザイン - カラーパレット */
+:root {
+    --mercari-red: #ea352d;
+    --mercari-red-dark: #d73b2e;
+    --mercari-red-light: #ff4b3a;
+    --mercari-red-bg: #fdf3f2;
+    --mercari-gray: #888888;
+    --mercari-gray-light: #f5f5f5;
+    --mercari-gray-dark: #333333;
+    --white: #ffffff;
+    --black: #000000;
+    --success-green: #4caf50;
+    --border-light: #e0e0e0;
+}
+
+/* 基本スタイル */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Yu Gothic", "メイリオ", sans-serif;
+    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Yu Gothic UI", "メイリオ", "Meiryo", sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background: linear-gradient(135deg, var(--mercari-red) 0%, var(--mercari-red-dark) 100%);
+    min-height: 100vh;
+    color: var(--white);
+    line-height: 1.6;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.input-section {
-    margin: 20px 0;
+/* ヘッダースタイル */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px 0;
     text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.input-section button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+header h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
 }
 
+/* コンテナ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 使い方セクション */
+.instructions {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--mercari-gray-dark);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.instructions h2 {
+    color: var(--mercari-red);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* 送り主情報フォーム */
+.sender-form {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--mercari-gray-dark);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.sender-form h2 {
+    color: var(--mercari-red);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.csv-upload {
+    background: var(--mercari-red-bg);
+    border: 2px dashed var(--mercari-red);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.csv-upload:hover {
+    background: rgba(234, 53, 45, 0.1);
+    border-color: var(--mercari-red-dark);
+}
+
+.csv-upload p {
+    margin: 0;
+    color: var(--mercari-gray-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.download-link {
+    color: var(--mercari-red);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid var(--mercari-red);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.download-link:hover {
+    background: var(--mercari-red);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--mercari-gray-dark);
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--mercari-red);
+    box-shadow: 0 0 0 3px rgba(234, 53, 45, 0.1);
+}
+
+/* ファイル入力とボタンセクション */
+.input-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.input-section input[type="file"] {
+    background: var(--white);
+    color: var(--mercari-gray-dark);
+    padding: 12px 20px;
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.input-section input[type="file"]:hover {
+    border-color: var(--mercari-red-light);
+}
+
+/* メインボタン */
+.button {
+    background: var(--white);
+    color: var(--mercari-red);
+    border: 2px solid var(--white);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    min-width: 160px;
+}
+
+.button:hover {
+    background: var(--mercari-red-light);
+    color: var(--white);
+    border-color: var(--mercari-red-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 53, 45, 0.3);
+}
+
+/* データプレビューテーブル */
+.data-preview {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    overflow-x: auto;
+}
+
+.data-preview table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.data-preview th {
+    background: var(--mercari-red);
+    color: var(--white);
+    padding: 15px 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.data-preview td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--mercari-gray-dark);
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.data-preview tr:hover {
+    background: var(--mercari-red-bg);
+}
+
+.data-preview tr:last-child td {
+    border-bottom: none;
+}
+
+.order-checkbox {
+    cursor: pointer;
+    transform: scale(1.2);
+    accent-color: var(--mercari-red);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .sender-form,
+    .instructions,
+    .data-preview,
+    .input-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .csv-upload p {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .input-section input[type="file"] {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* 印刷専用スタイル - 変更なし */
 .envelope-preview {
-    display: none;  /* 画面上では完全に非表示 */
+    display: none;
 }
 
 #printArea {
@@ -39,6 +332,7 @@ body {
         margin: 0;
         padding: 0;
         visibility: hidden;
+        background: var(--white) !important;
     }
     
     .container {
@@ -63,12 +357,12 @@ body {
         width: 120mm;
         height: 235mm;
         padding: 0;
-        margin: 0mm 0 0 0mm;  /* 10mm分ずつ減らして左上に移動 */
+        margin: 0mm 0 0 0mm;
         box-sizing: border-box;
         background-color: white;
         break-after: page;
         break-inside: avoid;
-        page-break-before: avoid; /* 最初のページの前での改ページを防ぐ */
+        page-break-before: avoid;
     }
 
     .address-section {
@@ -81,18 +375,21 @@ body {
     #recipientPostal {
         font-size: 16pt;
         margin-bottom: 5mm;
+        color: var(--black);
     }
 
     #recipientAddress {
         font-size: 14pt;
         line-height: 1.8;
         margin-bottom: 5mm;
+        color: var(--black);
     }
 
     #recipientName {
         font-size: 24pt;
         margin-top: 30mm;
         text-align: center;
+        color: var(--black);
     }
 
     .recipient-address {
@@ -100,7 +397,7 @@ body {
         top: 70mm;
         left: 15mm;
         width: 90mm;
-        break-inside: avoid; /* ページ内での分割を防ぐ */
+        break-inside: avoid;
     }
 
     .sender-address {
@@ -109,198 +406,73 @@ body {
         left: 15mm;
         width: 90mm;
         line-height: 0.3;
-        break-inside: avoid; /* ページ内での分割を防ぐ */
+        break-inside: avoid;
     }
 
     #senderOrganization {
         font-size: 16pt;
         margin-bottom: 1mm;
+        color: var(--black);
     }
 
     #senderName {
         font-size: 10pt;
         margin-bottom: 0;
+        color: var(--black);
     }
 
     #senderPostal {
         font-size: 10pt;
         margin-top: 2mm;
         padding-top: 2mm;
-        border-top: 1px solid #000;
+        border-top: 1px solid var(--black);
         margin-bottom: 0;
+        color: var(--black);
     }
 
     #senderAddress {
         font-size: 10pt;
         margin-bottom: 0;
+        color: var(--black);
     }
 
     #senderWebsite {
         font-size: 10pt;
         margin-bottom: 0;
+        color: var(--black);
     }
 
     .input-section, 
     .data-preview,
-    h1 {
+    header h1,
+    .instructions,
+    .sender-form {
         display: none;
     }
-} 
-
-.data-preview table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    table-layout: fixed;
 }
 
-.data-preview th,
-.data-preview td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.data-preview th {
-    background-color: #f5f5f5;
-    font-weight: normal;
-    text-align: center;
-    padding: 10px;
-}
-
-.data-preview tr:hover {
-    background-color: #f9f9f9;
-}
-
-.data-preview button {
-    padding: 4px 8px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 4px;
-}
-
-.data-preview button:hover {
-    background-color: #f5f5f5;
-}
-
-.order-checkbox {
-    cursor: pointer;
-}
-
-.sender-form {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.sender-form h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-.save-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.save-button:hover {
-    background-color: #45a049;
-}
-
-.csv-upload {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 4px;
-    border: 1px dashed #ddd;
-}
-
-.csv-upload p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.download-link {
-    color: #4CAF50;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.download-link:hover {
-    text-decoration: underline;
-}
-
+/* フッタースタイル */
 footer {
     margin-top: 40px;
-    padding: 20px 0;
+    padding: 30px 0;
     text-align: center;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 footer p {
     margin: 0;
-    color: #666;
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
 }
 
 footer a {
-    color: #4CAF50;
+    color: var(--white);
     text-decoration: none;
+    font-weight: 600;
 }
 
 footer a:hover {
     text-decoration: underline;
-} 
-
-.button {
-    background-color: #FF4C00; /* メインカラー */
-    color: #FFFFFF; /* テキストカラー */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #e04300; /* ホバー時の色 */
-}
-
-/* ヘッダーのスタイル */
-header {
-    text-align: center; /* 中央揃え */
-    margin-bottom: 20px; /* 下部のマージンを追加 */
 }
