@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# サイトマップの場所
+Sitemap: https://mercari-print.miupa.jp/sitemap.xml
+
+# 主要ページ
+Allow: /index.html
+Allow: /legal/
+
+# 不要なファイルをクロール対象外
+Disallow: /assets/templates/
+Disallow: /.git/
+Disallow: /.claude/
+Disallow: /node_modules/
+Disallow: /build/
+
+# クロール頻度の調整
+Crawl-delay: 1
