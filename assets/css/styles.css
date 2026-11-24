@@ -1,16 +1,21 @@
-/* メルカリ風デザイン - カラーパレット */
+/* miupa.jp デザイン仕様（DESIGN.md）に準拠したテーマ */
+/* ※印刷専用スタイルは一切変更していません（下部ブロック） */
 :root {
-    --mercari-red: #ea352d;
-    --mercari-red-dark: #d73b2e;
-    --mercari-red-light: #ff4b3a;
-    --mercari-red-bg: #fdf3f2;
-    --mercari-gray: #888888;
-    --mercari-gray-light: #f5f5f5;
-    --mercari-gray-dark: #333333;
+    color-scheme: light only;
+    --bg: #FAF9F5;
+    --surface: #FFFFFF;
+    --surface-2: #F0EEE6;
+    --text: #1F1E1D;
+    --muted: #6B6963;
+    --accent: #D97757;
+    --accent-strong: #C15F3C;
+    --on-accent: #FFFFFF;
+    --border: #E8E4DA;
     --white: #ffffff;
     --black: #000000;
     --success-green: #4caf50;
-    --border-light: #e0e0e0;
+    --shadow: 0 2px 14px rgba(31, 30, 29, 0.07);
+    --serif: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "Noto Serif JP", Georgia, serif;
 }
 
 /* 基本スタイル */
@@ -19,31 +24,31 @@
 }
 
 body {
-    font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Yu Gothic UI", "メイリオ", "Meiryo", sans-serif;
+    font-family: system-ui, -apple-system, "Hiragino Sans", "ヒラギノ角ゴシック", "Yu Gothic UI", "メイリオ", "Meiryo", sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, var(--mercari-red) 0%, var(--mercari-red-dark) 100%);
+    background: var(--bg);
     min-height: 100vh;
-    color: var(--white);
-    line-height: 1.6;
+    color: var(--text);
+    line-height: 1.75;
 }
 
 /* ヘッダースタイル */
 header {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(250, 249, 245, 0.85);
     backdrop-filter: blur(10px);
     padding: 30px 0;
     text-align: center;
     margin-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid var(--border);
 }
 
 header h1 {
-    color: var(--white);
+    color: var(--text);
+    font-family: var(--serif);
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     letter-spacing: 0.5px;
 }
 
@@ -54,23 +59,50 @@ header h1 {
     padding: 0 20px;
 }
 
+/* セクションの出現フェード（控えめ） */
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.instructions,
+.sender-form,
+.input-section,
+.data-preview {
+    animation: fade-up 0.7s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+.sender-form { animation-delay: 0.08s; }
+.input-section { animation-delay: 0.16s; }
+.data-preview { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .instructions,
+    .sender-form,
+    .input-section,
+    .data-preview {
+        animation: none;
+    }
+}
+
 /* 使い方セクション */
 .instructions {
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--mercari-gray-dark);
+    background: var(--surface);
+    color: var(--text);
     padding: 30px;
+    border: 1px solid var(--border);
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
 }
 
 .instructions h2 {
-    color: var(--mercari-red);
+    color: var(--text);
+    font-family: var(--serif);
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .instructions ol {
@@ -84,41 +116,42 @@ header h1 {
 
 /* 送り主情報フォーム */
 .sender-form {
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--mercari-gray-dark);
+    background: var(--surface);
+    color: var(--text);
     padding: 30px;
+    border: 1px solid var(--border);
     border-radius: 16px;
     margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
 }
 
 .sender-form h2 {
-    color: var(--mercari-red);
+    color: var(--text);
+    font-family: var(--serif);
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 25px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .csv-upload {
-    background: var(--mercari-red-bg);
-    border: 2px dashed var(--mercari-red);
+    background: var(--surface-2);
+    border: 2px dashed var(--accent);
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 25px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .csv-upload:hover {
-    background: rgba(234, 53, 45, 0.1);
-    border-color: var(--mercari-red-dark);
+    background: rgba(217, 119, 87, 0.08);
+    border-color: var(--accent-strong);
 }
 
 .csv-upload p {
     margin: 0;
-    color: var(--mercari-gray-dark);
+    color: var(--text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,19 +160,19 @@ header h1 {
 }
 
 .download-link {
-    color: var(--mercari-red);
+    color: var(--accent-strong);
     text-decoration: none;
     font-weight: 600;
     padding: 8px 16px;
-    border: 2px solid var(--mercari-red);
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    transition: background 0.3s ease, color 0.3s ease;
     display: inline-block;
 }
 
 .download-link:hover {
-    background: var(--mercari-red);
-    color: var(--white);
+    background: var(--accent);
+    color: var(--on-accent);
     text-decoration: none;
 }
 
@@ -151,24 +184,25 @@ header h1 {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--mercari-gray-dark);
+    color: var(--text);
     font-size: 0.95rem;
 }
 
 .form-group input {
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid var(--border-light);
-    border-radius: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    background: var(--white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--surface);
+    color: var(--text);
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: var(--mercari-red);
-    box-shadow: 0 0 0 3px rgba(234, 53, 45, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.15);
 }
 
 /* ファイル入力とボタンセクション */
@@ -176,60 +210,59 @@ header h1 {
     text-align: center;
     margin: 30px 0;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
 }
 
 .input-section input[type="file"] {
-    background: var(--white);
-    color: var(--mercari-gray-dark);
+    background: var(--surface);
+    color: var(--text);
     padding: 12px 20px;
-    border: 2px solid var(--white);
-    border-radius: 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     margin-right: 15px;
     margin-bottom: 15px;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .input-section input[type="file"]:hover {
-    border-color: var(--mercari-red-light);
+    border-color: var(--accent);
 }
 
 /* メインボタン */
 .button {
-    background: var(--white);
-    color: var(--mercari-red);
-    border: 2px solid var(--white);
-    border-radius: 8px;
+    background: var(--accent);
+    color: var(--on-accent);
+    border: 2px solid var(--accent);
+    border-radius: 999px;
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
     text-decoration: none;
     min-width: 160px;
 }
 
 .button:hover {
-    background: var(--mercari-red-light);
-    color: var(--white);
-    border-color: var(--mercari-red-light);
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(234, 53, 45, 0.3);
+    box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3);
 }
 
 /* データプレビューテーブル */
 .data-preview {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
     overflow-x: auto;
 }
 
@@ -237,26 +270,27 @@ header h1 {
     width: 100%;
     border-collapse: collapse;
     margin-top: 0;
-    background: var(--white);
+    background: var(--surface);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 16px rgba(31, 30, 29, 0.05);
 }
 
 .data-preview th {
-    background: var(--mercari-red);
-    color: var(--white);
+    background: var(--surface-2);
+    color: var(--text);
     padding: 15px 12px;
     text-align: center;
     font-weight: 600;
     font-size: 0.95rem;
     border: none;
+    border-bottom: 1px solid var(--border);
 }
 
 .data-preview td {
     padding: 12px;
-    border-bottom: 1px solid var(--border-light);
-    color: var(--mercari-gray-dark);
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -264,7 +298,7 @@ header h1 {
 }
 
 .data-preview tr:hover {
-    background: var(--mercari-red-bg);
+    background: var(--surface-2);
 }
 
 .data-preview tr:last-child td {
@@ -274,7 +308,7 @@ header h1 {
 .order-checkbox {
     cursor: pointer;
     transform: scale(1.2);
-    accent-color: var(--mercari-red);
+    accent-color: var(--accent);
 }
 
 /* レスポンシブデザイン */
@@ -282,11 +316,11 @@ header h1 {
     header h1 {
         font-size: 1.8rem;
     }
-    
+
     .container {
         padding: 0 15px;
     }
-    
+
     .sender-form,
     .instructions,
     .data-preview,
@@ -294,18 +328,18 @@ header h1 {
         padding: 20px;
         margin-bottom: 20px;
     }
-    
+
     .csv-upload p {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .input-section input[type="file"] {
         margin-right: 0;
         margin-bottom: 15px;
         width: 100%;
     }
-    
+
     .button {
         width: 100%;
         max-width: 300px;
@@ -456,19 +490,18 @@ footer {
     margin-top: 40px;
     padding: 30px 0;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    background: var(--surface-2);
 }
 
 footer p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--muted);
     font-size: 0.9rem;
 }
 
 footer a {
-    color: var(--white);
+    color: var(--accent-strong);
     text-decoration: none;
     font-weight: 600;
 }
