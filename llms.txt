@@ -1,0 +1,12 @@
+# メルカリShops宛名ラベル作成ツール (Mercari Shops Mailing Label Tool)
+
+> A free web tool that creates mailing labels in Nagagata No.3 envelope format from Mercari Shops order CSV files. Everything runs in the browser; order data and personal information are never uploaded to a server.
+
+## Tool
+
+- [メルカリShops宛名ラベル作成ツール](https://mercari-print.miupa.jp/): Upload a Mercari Shops order CSV, set the sender information, and print address labels sized for Nagagata No.3 envelopes. Sender information can be saved in the browser for reuse. No sign-up, no data collection.
+
+## About
+
+- [MiUPa portfolio](https://miupa.jp/): Other free tools and Chrome extensions by the same developer.
+- [GitHub](https://github.com/MiUPa/mercari-print)
